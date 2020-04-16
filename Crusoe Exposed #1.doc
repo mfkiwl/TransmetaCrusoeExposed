@@ -1,0 +1,373 @@
+{\rtf1\ansi\ansicpg1252\deff0\uc1
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype Times New Roman;}
+{\f1\fnil\fcharset0\fprq0\fttruetype Courier;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Liberation Sans;}
+{\f3\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;
+\red255\green255\blue255;
+\red51\green51\blue51;}
+{\stylesheet
+{\s6\fi-430\li720\sbasedon28\snext28 Contents 1;}
+{\s7\fi-430\li1440\sbasedon28\snext28 Contents 2;}
+{\s1\fi-430\li720 Arrowhead List;}
+{\s27\fi-430\li720\sbasedon28 Lower Roman List;}
+{\s29\tx431\sbasedon20\snext28 Numbered Heading 1;}
+{\s30\tx431\sbasedon21\snext28 Numbered Heading 2;}
+{\s12\fi-430\li720 Diamond List;}
+{\s9\fi-430\li2880\sbasedon28\snext28 Contents 4;}
+{\s8\fi-430\li2160\sbasedon28\snext28 Contents 3;}
+{\s31\tx431\sbasedon22\snext28 Numbered Heading 3;}
+{\s32\fi-430\li720 Numbered List;}
+{\s15\sbasedon28 Endnote Text;}
+{\*\cs14\fs20\super Endnote Reference;}
+{\s4\fi-430\li720 Bullet List;}
+{\s5\tx1584\sbasedon29\snext28 Chapter Heading;}
+{\s35\fi-430\li720 Square List;}
+{\s11\fi-430\li720 Dashed List;}
+{\s22\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 3;}
+{\s37\fi-430\li720 Tick List;}
+{\s24\fi-430\li720 Heart List;}
+{\s40\fi-430\li720\sbasedon32 Upper Roman List;}
+{\s39\fi-430\li720\sbasedon32 Upper Case List;}
+{\s16\fi-288\li288\fs20\sbasedon28 Footnote;}
+{\s19\fi-430\li720 Hand List;}
+{\s18\fs20\sbasedon28 Footnote Text;}
+{\s20\sb440\sa60\f2\fs34\b\sbasedon28\snext28 Heading 1;}
+{\s21\sb440\sa60\f2\fs28\b\sbasedon28\snext28 Heading 2;}
+{\s10\qc\sb240\sa119\f2\fs32\b\sbasedon28\snext28 Contents Header;}
+{\s23\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 4;}
+{\s28\f0\fs24 Normal;}
+{\s26\fi-430\li720\sbasedon32 Lower Case List;}
+{\s2\li1440\ri1440\sa119\sbasedon28 Block Text;}
+{\s33\f3\sbasedon28 Plain Text;}
+{\s34\tx1584\sbasedon29\snext28 Section Heading;}
+{\s25\fi-430\li720 Implies List;}
+{\s3\fi-430\li720 Box List;}
+{\s36\fi-430\li720 Star List;}
+{\*\cs17\fs20\super Footnote Reference;}
+{\s38\fi-430\li720 Triangle List;}
+{\s13\fi-288\li288\sbasedon28 Endnote;}}
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\revprop3{\*\rdf}{\info\uc1}\deftab720\viewkind1\paperw12240\paperh15840\margl1440\margr1440\widowctrl
+\sectd\sbknone\colsx360\pgncont\ltrsect
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\abinodiroverride\ltrch Background}{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\i\lang1033{\*\listtag0}\abinodiroverride\ltrch This is the first in a series of articles that describes the reverse engineering of the internal ISA used by the Transmeta Crusoe microprocessor.}{\s28\cf3\f0\fs28\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch Ever since Transmeta introduced its Crusoe microprocessors in 1999, there has been a great deal of interest in the internal architecture of these novel devices, the Code Morphing Software (CMS) responsible for their IA-32/x86 compatibility, and their true performance potential if not hampered by dynamic binary translation overhead.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch Unfortunately, Transmeta has repeatedly stated that the underlying Crusoe instruction set will not be publicly documented, and have even implied that reverse engineering the instruction set or CMS itself would be impossible.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch It is particularly disturbing that key open source figures, including Linus Torvalds himself, have become involved with such a belief in \uc1\u8216\'91security through obscurity\uc1\u8217\'92 (see\~[4]\~in references for lkml quotes).}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch Unfortunately for Transmeta, as we will see below, this was a wildly incorrect and very presumptuous assumption. Given the appropriate technical background, skills and motivation, this report demonstrates that it is fully possible for someone outside of Transmeta\uc1\u8217\'92s secret inner circle to reverse engineer not only the hardware instruction set but the operation of CMS itself.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch In the interest of finally revealing what others have merely speculated on, the author has successfully reverse engineered a substantial part of the native Crusoe architecture and instruction set, right down to the binary instruction encodings and functional unit specifics for the TM5xxx series of processors.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch It is important to note that absolutely no proprietary trade secrets were known a priori for this research, nor does the author have any relationship with the company or its employees. All information presented here is strictly the result of clean room reverse engineering over the course of the past few months.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch \page }{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\abinodiroverride\ltrch Report Structure}{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch This report is the first installment of a series of papers on Crusoe internals. The purpose of this initial release is to serve as a wake-up call to those at Transmeta and elsewhere who thought Crusoe was impervious to reverse engineering. It serves as the proof that the knowledge Transmeta sought to keep secret is in fact out there. Considering that this analysis was done for strictly academic reasons in my spare time, it is very reasonable to assume that Transmeta\uc1\u8217\'92s full time competitors could possess similar knowledge.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch The author is publishing this research anonymously so as to gauge the reaction to its release. If sufficient interest is present, a second report will be released in early 2004, which will describe in detail the instruction set, binary encodings, functional unit specifics and more. The author\uc1\u8217\'92s disassembler and analysis tools source code will also be provided. A third and final report will document all behavior specific to translated x86 code, as experimented with in real time on stock hardware.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch The eventual goal is to allow developers to switch into native TM5xxx mode at runtime, allowing the modification of CMS itself. Contrary to statements released by Linus et al (see\~[4]\~in references) presumably to discourage this very effort, CMS does in fact contain \uc1\u8216\'91back doors\uc1\u8217\'92 to allow such modification. While the factory programmed CMS version in flash ROM does verify a DSA signature on any CMS upgrade images, there appears to be at least one backdoor that not even Transmeta itself was apparently aware of. As stated earlier, this will be presented in the next report once the author has time to write it up.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch \page }{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\abinodiroverride\ltrch Reverse Engineering Methodology}{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch Now, for the proof. The reverse engineering effort started with a static analysis of a CMS 4.4.03 binary image (}{\s28\cf3\f0\fs24\lang1033{\*\listtag0}[5]}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\~in references). The only other resources used include published articles and technical reports, as well as the author\uc1\u8217\'92s own personal experience in designing VLIW processors at a major university research lab.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch Surprisingly, no actual Crusoe hardware was necessary for most of the initial static analysis; only isolated details required analyzing a CMS memory image at runtime. To present some idea of the nature of Crusoe native code, the end of this report includes disassembled and commented listings of a few key CMS functions. Each instruction is given in both binary and symbolic form, along with comments to demonstrate understanding of the actual high level meaning the corresponding source code expressed.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch CMS appears to have been compiled from C source using a hacked version of gcc, with many key parts hand-scheduled in VLIW assembler. Note that the instruction mnemonics and register names may not exactly match what Transmeta developers use internally, since the author did not have access to that information. Hence, most symbolic names have been based on those used in published papers or were derived from debug strings in the CMS image.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch Anyone from Transmeta should be able to verify that this is indeed genuine TM5800 code with the given meaning; they are invited to confirm the legitimacy of the reverse engineered code (assuming their employer will let them!)}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch \page }{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\abinodiroverride\ltrch References and Conclusions}{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch This concludes the introductory installment of the Crusoe Exposed series. Watch for the next parts of this report to be posted in early 2004, and happy new year to Transmeta \uc1\u8211\'96 we hope your TM8xxx Efficeon series will be even more interesting to reverse engineer.}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs32\lang1033{\*\listtag0}\abinodiroverride\ltrch References}{\s28\cf3\f0\fs32\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\*\bkmkstart Footer1}{\s28\cf3\f0\fs32\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch [1] Klaiber, A. \uc1\u8220\'93The Technology Behind Crusoe Processors,\uc1\u8221\'94\~}{\*\bkmkend Footer1}{\field{\*\fldinst {\cf3\f0\fs32\lang1033{\*\listtag0} HYPERLINK "http://www.transmeta.com/pdfs/paper_aklaiber_19jan00.pdf"}}{\*\fldrslt{\s28\cf3\f0\fs28\lang1033{\*\listtag0}http://www.transmeta.com/pdfs/paper_aklaiber_19jan00.pdf}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0}}{\*\bkmkstart Footer2}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch [2] Halfhill, T. \uc1\u8220\'93Transmeta Breaks x86 Low-Power Barrier,\uc1\u8221\'94 Microprocessor Report, 14(2):9\uc1\u8211\'9618, February 2000.}{\*\bkmkend Footer2}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\*\bkmkstart Footer3}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch [3] TM5800 BIOS Programmer\uc1\u8217\'92s Guide:\~}{\*\bkmkend Footer3}{\field{\*\fldinst {\f0\fs24\lang1033{\*\listtag0} HYPERLINK "http://www.transmeta.com/crusoe_docs/TM5800_BIOSGuide_6-14-02.pdf"}}{\*\fldrslt{\s28\cf3\f0\fs28\lang1033{\*\listtag0}http://www.transmeta.com/crusoe_docs/TM5800_BIOSGuide_6-14-02.pdf}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0}}{\*\bkmkstart Footer4}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch [4] Linux Kernel Mailing List: \uc1\u8220\'93Re: Crusoe\uc1\u8217\'92s persistent translation on linux?\uc1\u8221\'94, by Linus Torvalds, June 19, 2003.\~}{\*\bkmkend Footer4}{\field{\*\fldinst {\f0\fs24\lang1033{\*\listtag0} HYPERLINK "http://www.ussg.iu.edu/hypermail/linux/kernel/0306.2/1091.html"}}{\*\fldrslt{\s28\cf3\f0\fs28\lang1033{\*\listtag0}http://www.ussg.iu.edu/hypermail/linux/kernel/0306.2/1091.html}}}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\~}{\field{\*\fldinst {\f0\fs24\lang1033{\*\listtag0} HYPERLINK "http://www.ussg.iu.edu/hypermail/linux/kernel/0306.2/1221.html"}}{\*\fldrslt{\s28\cf3\f0\fs28\lang1033{\*\listtag0}http://www.ussg.iu.edu/hypermail/linux/kernel/0306.2/1221.html}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0}}{\*\bkmkstart Footer5}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch [5] Code Morphing Software 4.4.03 Persistent Translation Technology Update for HP Tablet PCs.\~}{\*\bkmkend Footer5}{\field{\*\fldinst {\f0\fs24\lang1033{\*\listtag0} HYPERLINK "ftp://ftp.compaq.com/pub/softpaq/sp23501-24000/SP23689.exe"}}{\*\fldrslt{\s28\cf3\f0\fs28\lang1033{\*\listtag0}ftp://ftp.compaq.com/pub/softpaq/sp23501-24000/SP23689.exe}}}{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\abinodiroverride\ltrch \page }{\s28\cf3\f0\fs28\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\abinodiroverride\ltrch The Proof}{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\cf3\f0\fs40\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # Handler for reading MSR registers from x86 operating system code.}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # Illustrates the code for functionality well documented in published}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # specifications from Transmeta.}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch read_msr:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #=< target 0x000a6798:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6798:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 5039aff4 = 010 100000011 100110 101111 11110100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 103befe0 = 000 100000011 101111 101111 11100000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r38,%r47,-12       # %r38 = %sp \uc1\u8211\'96 12}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r47,%r47,-32       # %sp = %sp \uc1\u8211\'96 32}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a67a0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1038e604 = 000 100000011 100011 100110 00000100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 1bb8bf00 = 000 110111011 100010 111111 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x80000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r35,%r38,4          # %r35 = %r38 + 4}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # oril    %r34,%zero,0x80000000 # %r34 = 0x80000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a67b0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 044319bf = 000 001000100 001100 011001 10111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 100f008b = 000 100000000 111100 000000 10001011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x14b00000                                    }{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r47],%r25          # Save %r25}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # add    %r60,%r0,%r34       # %r60 = %r0 (%eax) + 0x80000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #                              # (to bring MSR offset down to zero base)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a67c0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 04431a8f = 000 001000100 001100 011010 10001111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 09397c04 = 000 010010011 100101 111100 00000100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 18367f00 = 000 110000011 011001 111111 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x0018aae0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r35],%r26          # Save %r26}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # slli    %r37,%r60,4          # Shift MSR number for indexing into table}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addil   %r25,%zero,0x0018aae0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #                              # 0x18aae0 -< cpuid data for 0x80000000-6}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # NOTE: shifts (slli, etc). appear to only be available on ALU1, at least}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # according to the opcode map. This is a bizarre (but low power) design.}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a67d0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 04431b9b = 000 001000100 001100 011011 10011011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 4606fa03 = 010 001100000 011011 111010 00000011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 1f3f8000 = 000 111110011 111110 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x80000006}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r38],%r27          # [%sp-12] = %r27 (callee saved)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # 001100000 %r27,%r58,%r0      #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmpil.c %sink,%r0,0x80000006 # compare %eax == 0x80000006?}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a67e0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 103ed9c0 = 000 100000011 111011 011001 11000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 18392500 = 000 110000011 100100 100101 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x0018aae0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r59,%r25,-64       # 0x18aaa0 -< cpuid data returned for 0x0-0x3}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addil   %r36,%r37,0x0018aae0 # %r36 = 0x18aae0 + (%r60 >> 4)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a67f0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 170f808b = 000 101110000 111110 000000 10001011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 9386bfff = 100 100111000 011010 111111 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU ae014d0c = 101 0111 0 000000010100110100001100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmp.c   %sink,%r0,%r34       # compare %eax == 0x80000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # or      %r26,%zero,%zero    # Move %r26 = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br.gt   0x000a6860          # branch if %eax < 0x80000006}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #                              # (to handle 0x80860000 functions)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6800:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 773f8003 = 011 101110011 111110 000000 00000011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU a6014d17 = 101 0011 0 000000010100110100010111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmp.c   %sink,%r0,3          # Compare %eax == 3}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br.ge   0x000a68b8          # branch if (%eax <= 0x80000000)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # (branch to load_cpuid_data_to_regs)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6808:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 538f00ff = 010 100111000 111100 000000 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 09394004 = 000 010010011 100101 000000 00000100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # or      %r60,%r0,%zero       # %r60 = %eax}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # slli    %r37,%r0,4          # %r37 = %eax >> 4 (index cpuid table)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6810:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 100925ef = 000 100000000 100100 100101 11101111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 93867bff = 100 100111000 011001 111011 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # add    %r36,%r37,%r59       # %r36 = %r37 + (%r0>>4) + 0x18aaa0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #=< target 0x000a6820:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6820:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1038ef14 = 000 100000011 100011 101111 00010100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 1380bfff = 000 100111000 000010 111111 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x14b00000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r35,%r47,20         # %r35 = %r47 + 20}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # or      %r2,%zero,%zero      # %edx = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6830:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 53807fff = 010 100111000 000001 111111 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1380ffff = 000 100111000 000011 111111 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # move    %r1,%zero,%zero       # %ecx = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # move    %r3,%zero,%zero       # %ebx = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6838:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 53803fff = 010 100111000 000000 111111 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1038af18 = 000 100000011 100010 101111 00011000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # move    %r0,%zero,%zero       # Set %eax = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r34,%r47,24          # %r34 = %sp + 24}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #=< target 0x000a6840:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6840:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 2506c48f = 001 001010000 011011 000100 10001111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 46803a6f = 010 001101000 000000 111010 01101111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r27,[%r35]       # load %r27 = [%r35]}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br.prep %r0,%r58,%r27    # prepare branch (%r58 = %link)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6848:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 2506848b = 001 001010000 011010 000100 10001011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r26,[%r34]       # restore saved register}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6850:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 050644bf = 000 001010000 011001 000100 1011111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 103bef20 = 000 100000011 101111 101111 0010000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 94b00000 = 100 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU 80800076 = 100 0000 0 10000000000000000111011 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r25,[%r47]       # restore saved register}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r47,%r47,32      # restore stack frame}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br.ret %r58             # return to caller (%r58 = %from)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # Load %eax/%ebx/%ecx/%edx with values for a given cpuid}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # MSR read request. Illustrates operation of load unit.}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch load_cpuid_data_to_regs:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #=< target 0x000a68b8:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68b8:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 54b00000 = 010 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68c0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 5039e40c = 010 100000011 100111 100100 00001100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 103a2404 = 000 100000011 101000 100100 00000100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r39,%r36,12         # %r39 = %r36 + 12   (0x18aaec -< \uc1\u8220\'93smet\uc1\u8221\'94)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r40,%r36,4          # %r40 = %r36 + 4    (0x18aae4 -< \uc1\u8220\'93Tran\uc1\u8221\'94)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68c8:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 25000493 = 001 001010000 000000 000100 10010011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1039a408 =>000<100000011 100110 100100 00001000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r0,[%r36]          # %eax = max cpuid request id}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r38,%r36,8          # %r38 = %r38 + 8 (= 0x18aae8)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68d0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 2500c4a3 = 001 001010000 000011 000100 10100011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 170f9aff = 000 101110000 111110 011010 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r3,4,[%r40]         # load %ebx (%r3) = \uc1\u8220\'93Tran\uc1\u8221\'94}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmp.c   %sink,%r26,%zero    # (as called from above, %r26 always is zero)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68d8:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 2500849f = 001 001010000 000010 000100 10011111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1038ef14 = 000 100000011 100011 101111 00010100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r2,[%r39]          # load %edx (%r2) = \uc1\u8220\'93smet\uc1\u8221\'94}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r35,%r47,20         # r35 = r47 + 20}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68e0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 0500449b = 000 001010000 000001 000100 10011011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1038af18 = 000 100000011 100010 101111 00011000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 94b00000 = 100 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU a8014d08 = 101 01000 00000001 01001101 00001000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r1,[%r38]          # load %ecx (%r1) = \uc1\u8220\'93aCPU\uc1\u8221\'94 (%r38 = 0x18aae8)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r34,%r47,24         # %r34 = %r47 + 24}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br.eq   0x000a6840          # branch to common completion}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a68f0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 74b00014 = 011 101001011 000000 000000 00010100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x14b00000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu | nop | nop | nop}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6900:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 54b00000 = 010 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 74b00315 = 011 101001011 000000 000011 00010101}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6908:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 54b00000 = 010 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 74b00116 = 011 101001011 000000 000001 00010110}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6910:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 74b00217 = 011 101001011 000000 000010 00010111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 94b00000 = 100 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU 80014d08 = 100 00000 00000001 01001101 00001000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu | nop | nop}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br      0x000a6840}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # Called to enable/disable processor serial number (PSN)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # when bit 21 of MSR 0x119 is written. Top level write_msr}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # handler is not shown, but is similar to read_msr.}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # On entry:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # %r37 -< cpu_feature_flags (at 0x0018aabc)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # %r38 -< current value of msr_psn_disable}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #=< target 0x000a6f20:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f20:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 050a8497 = 000 001010000 101010 000100 10010111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 170f80ff = 000 101110000 111110 000000 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 1a3b0000 = 000 110100011 101100 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0xffdfffff}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ld      %r42,%r4,%r37/3      # %r42 = [%r37] (load cpuid feature flags)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmp.c   %sink,%r0,%zero      # is %eax zero? (%eax = 0) meaning: *enable* PSN}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # andil   %r44,%r0,0xffdfffff # %r44 = %eax & ~(1>>21): bit21 = PSN disable bit}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f30:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 020342ff = 000 000100000 001101 000010 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 1a3a6a00 = 000 110100011 101001 101010 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0xfffbffff}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmp.and %r13,%r2,%zero       # %edx == %zero (high 32 bits in %edx must be zero)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # andil   %r41,%r42,0xfffbffff # 0xfffbffff = ~(1 >> 18) = PSN feature flag}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f40:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 03b00600 = 000 000111011 000000 000110 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1388e5ff = 000 100111000 100011 100101 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 82036cff = 100 000100000 001101 101100 11111111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU a8014dc9 = 101 0100 0 000000010100110111001001}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # nop.lsu}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # or      %r35,%r37,%zero      # %r35 = %r37}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # cmp.and %r13,%r44,%zero      # cmp.and %r44 == %zero}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch #                              # (i.e., no other bits are set in %eax)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br.eq   0x000a6e48          # (if %eax = 0 [means \uc1\u8220\'93enable PSN\uc1\u8221\'94], branch)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f50:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 04432997 = 000 001000100 001100 101001 10010111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 13b9ff01 = 000 100111011 100111 111111 00000001}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 103a25e4 = 000 100000011 101000 100101 11100100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x14b00000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r37],%r41          # cpu_feature_flags &= PSN_FF_BIT}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # ori    %r39,%zero,1         # %r39 = 1}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r40,%r37,-28       # %r40 = 0x0018aaa0 [0x3 \uc1\u8216\'91Genu\uc1\u8217\'92 \uc1\u8216\'91Mx86\uc1\u8217\'92 \uc1\u8216\'91ineT\uc1\u8217\'92]}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f60:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 0443009b = 000 001000100 001100 000000 10011011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 10396518 = 000 100000011 100101 100101 00011000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU0 1039a514 = 000 100000011 100110 100101 00010100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x14b00000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r38],%r0          # st [%r38],%r0 (%eax =< msr_psn_disable)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r37,%r37,24         # %r37 = 0x18aad4 &(\uc1\u8220\'93my unique id\uc1\u8221\'94)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r38,%r37,20         # %r38 = 0x18aad0 &(before \uc1\u8220\'93my unique id\uc1\u8221\'94)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f70:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 044327a3 = 000 001000100 001100 100111 10100011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch imm 0x14b00000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r40],%r39          # max_cpuid_base_func_number = %r39 (i.e., 1)}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f80:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 24433f97 = 001 001000100 001100 111111 10010111}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1038a320 = 000 100000011 100010 100011 00100000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r37],%zero         # [\uc1\u8220\'93my u\uc1\u8221\'94] = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r34,%r35,32         # %r34 = 0x18aadc}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f88:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 24433f9b = 001 001000100 001100 111111 10011011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch ALU1 1039231c = 000 100000011 100100 100011 00011100}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r38],%zero         # [word before \uc1\u8220\'93my unique id\uc1\u8221\'94] = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # addi    %r36,%r35,28         # %r36 = 0x18aad8}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f90:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 24433f8b = 001 001000100 001100 111111 10001011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r34],%zero         # [\uc1\u8220\'93e ID\uc1\u8221\'94] = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6f98:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch LSU 24433f93 = 001 001000100 001100 111111 10010011}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # st      [%r36],%zero         # [\uc1\u8220\'93niqu\uc1\u8221\'94] = 0}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6fa0:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 54b00000 = 010 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop1 14b00000 = 000 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 0x000a6fa8:}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch nop0 74b00000 = 011 101001011 000000 000000 00000000}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch BRU 80014dc9 = 100 0000 0 000000010100110111001001}{\s28\f1\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f1\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch # br      0x000a6e48}{\s28\f1\fs24\lang1033{\*\listtag0}\par}}
